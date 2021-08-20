@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💘Sign us💘</title>
+    <link rel="stylesheet" href="css/reset_body.css">
+    <link rel="stylesheet" href="css/style_body.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form action="#">
+			<h1>Create Account</h1>
+			<div class="social-container"></div>
+			<span>use your email for registration</span>
+			<input type="text" id="text_create" placeholder="Nickname" />
+			<input type="email" id="email_create" placeholder="Email" />
+			<input type="password" id="password_create" placeholder="Password" />
+			<button type="button"  id="signup_go" onclick="location.href='yours.html'">Sign Up</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form action="#">
+				<h1>Sign in</h1>
+				<div class="social-container"></div>
+				<span>use your account</span>
+				<input type="email" id="email_created" placeholder="Email" />
+				<input type="password" id="password_created" placeholder="Password" />
+				<!-- Dummy start -->
+				<a href="#">Forgot your password?</a>
+				<button>Sign In</button>
+				<!-- Dummy finish -->
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome Back!</h1>
+					<p>To keep connected with us please login with your personal info</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Enter your personal details and start journey with us</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		const signUpButton = document.getElementById('signUp');
+		const signInButton = document.getElementById('signIn');
+		const container = document.getElementById('container');
+
+		signUpButton.addEventListener('click', () => {  
+		container.classList.add("right-panel-active");
+		});
+
+		signInButton.addEventListener('click', () => {
+		container.classList.remove('right-panel-active');
+		});
+		// SIGN UP = Account created Event
+		$('#signup_go').on('click',function(){
+			var value = $('#text_create').val();
+			localStorage.setItem('nickname',value);
+			var value = $('#email_create').val();
+			localStorage.setItem('email',value);
+			var value = $('#password_create').val();
+			localStorage.setItem('password',value);		
+		})
+		// SIGN IN = Account getItem Event
+		if(localStorage.getItem('email')){
+			const value = localStorage.getItem('email');
+			$('#email_created').val(value);
+		}
+		if(localStorage.getItem('password')){
+			const value = localStorage.getItem('password');
+			$('#password_created').val(value);
+		}
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💘Your infomation💘</title>
+    <link rel="stylesheet" href="css/reset_body.css">
+    <link rel="stylesheet" href="css/style_body.css">
+</head>
+
+<body>
+    <div class="information">
+			<section>
+			<h1>Enter more information required</h1>
+			<span>please tell us</span>
+			<div class="social-container"></div>
+			<div class="info_flex">
+				<div>
+					<div class="text-div">Contact</div>
+					<div class="info_div"><input type="number" id="contact_create" placeholder="Phone Number" /></div>
+				</div>	
+			</div>
+			<div class="text-div">Current Location</div>
+			<input type="text" id="location_create" placeholder="Location" />
+			<div class="info_flex">
+				<div>
+					<div class="text-div">Showme</div>
+					<div id=showme_create>
+						<div class="showme_who">
+							<input type="radio" id="men" name="drone" value="men" checked>
+							<label for="men">Men</label>
+						</div>
+						<div class="showme_who">
+							<input type="radio" id="women" name="drone" value="women" checked>
+							<label for="women">Women</label>
+						</div>
+						<div class="showme_who">
+							<input type="radio" id="everyone" name="drone" value="everyone" checked>
+							<label for="everyone">Everyone</label>
+						</div>
+					</div>
+				</div>
+				<div class="age_div">
+					<div class="text-div">Age preference</div>
+					<div class="info_div"><input type="range" id="age_create" min="18" max="100" step="1" /></div>
+				</div>
+			</div>
+			<div class="text-div">You love type</div>
+			<input type="text" id="type_create" placeholder="Free word" />
+			<div class="social-container"></div>
+			<button id="join_go"  onclick="location.href='start.html'" >Start</button>
+			</section>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		// 作業中のためMEMOにしてる
+		// alert('Account created');
+		
+		// Current Location
+
+		const list = ['北海道','青森県','岐阜県'];
+		
+		// JOIN = Your information created Event
+		$("#join_go").on("click",function(){
+			var value = $("#contact_create").val();
+			localStorage.setItem("phonenumber",value);
+			var value = $("#shome_create").val();
+			localStorage.setItem("interested",value);
+			var value = $("#location_create").val();
+			localStorage.setItem("location",value);	
+			var value = $("#type_create").val();
+			localStorage.setItem("lovethat",value);		
+		})
+
+	</script>
+
+</Ｂ>
+
+</html>
